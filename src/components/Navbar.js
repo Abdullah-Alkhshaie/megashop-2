@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../images/logo.png";
 import { FiPhoneCall } from "react-icons/fi";
 import { LuShoppingCart } from "react-icons/lu";
@@ -7,9 +7,32 @@ import Search from "./Search";
 import Header from "./Header";
 
 function Navbar() {
+  const [isSticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setSticky(window.scrollY > 150);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <div className="bg-primary text-white lg:px-16  py-8 flex flex-col lg:flex-row items-center gap-4 justify-between">
+      <div
+        className={`bg-primary text-white lg:px-16 py-8 flex flex-col lg:flex-row items-center gap-4 justify-between ${
+          isSticky ? "fixed top-0 duration-300 w-full z-50" : "-top-20"
+        }`}
+        // style={{
+        //   transition: "background-color 0.3s ease", // Add transition for smooth color change
+        //   top: isSticky ? 0 : undefined,
+        // }}
+      >
         <div>
           <Link to="/">
             <img src={Logo} className="w-44" alt="logo" />
