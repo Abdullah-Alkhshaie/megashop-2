@@ -71,7 +71,7 @@ function ProductPage() {
               <div className="flex  gap-10 mt-5 items-center">
                 <p className="text-lg text-dark"> QTY</p>
                 <p>1</p>
-                <button className="bg-primary flex items-center gap-3 text-white lg:px-6 hover:bg-font px-3 py-2 lg:py-3 text-lg rounded-md">
+                <button className="bg-primary flex items-center gap-1 md:gap-3 text-white lg:px-6 hover:bg-font px-1 md:px-3 py-2 lg:py-3 text-base md:text-lg rounded-md">
                   <LuShoppingCart size={25} /> Add To Cart
                 </button>
               </div>
