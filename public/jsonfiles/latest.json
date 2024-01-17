@@ -1,0 +1,99 @@
+[
+  {
+    "name": "laborum dolorum fungaes",
+    "id": 7,
+    "img": "../images/camera.jpg",
+    "availabilty": "Pre-Order",
+    "newprice": 699.0,
+    "descrption": "laborum dolorum fungaes",
+    "category": "digital-camera"
+  },
+  {
+    "name": "harum quidem facilisary",
+    "id": 8,
+    "img": "../images/laptop.jpg",
+    "availabilty": "2-3 Days",
+    "newprice": 999.0,
+    "descrption": "laborum dolorum fungaes",
+    "category": "laptop"
+  },
+  {
+    "name": "aliquam quaerat voluptatem",
+    "id": 6,
+    "img": "../images/iphone.jpg",
+    "availabilty": "In-Stock",
+    "brand": "Quisquam",
+    "newprice": 100.0,
+    "descrption": "More room to move.  With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.    Cover Flow.   Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list. Enhanced interface.  Experience a whole new way to browse and view your music and video.  Sleeker design. Beautiful, durable, and sleeker than ever, iPod classic now features an anodized aluminum and polished stainless steel enclosure with rounded edges.",
+    "category": "iphone"
+  },
+  {
+    "name": "similique suntin culpaqui",
+    "id": 3,
+    "img": "../images/computer.jpg",
+    "availabilty": "In-Stock",
+    "brand": "Eosquies",
+    "newprice": 1000.0,
+    "descrption": "Unprecedented power. The next generation of processing technology has arrived. Built into the newest VAIO notebooks lies Intel's latest, most powerful innovation yet: Intel® Centrino® 2 processor technology. Boasting incredible speed, expanded wireless connectivity, enhanced multimedia support and greater energy efficiency, all the high-performance essentials are seamlessly combined into a single chip.",
+    "category": "computer"
+  },
+  {
+    "name": "quis autem veleuminium",
+    "id": 10,
+    "img": "../images/camera3.jpg",
+    "availabilty": "In-Stock",
+    "brand": "Omnis",
+    "newprice": 1200.0,
+    "descrption": "MacBook Air is ultrathin, ultraportable, and ultra unlike anything else. But you don’t lose inches and pounds overnight. It’s the result of rethinking conventions. Of multiple wireless innovations. And of breakthrough design. With MacBook Air, mobile computing suddenly has a new standard.",
+    "category": "digital-camera"
+  },
+  {
+    "name": "aspetur autodit autfugit",
+    "id": 61,
+    "img": "../images/camera.jpg",
+    "availabilty": "Pre-Order",
+    "newprice": 1699.0,
+    "descrption": "Samsung Galaxy Tab 10.1, is the world’s thinnest tablet, measuring 8.6 mm thickness, running with Android 3.0 Honeycomb OS on a 1GHz dual-core Tegra 2 processor, similar to its younger brother Samsung Galaxy Tab 8.9.    Samsung Galaxy Tab 10.1 gives pure Android 3.0 experience, adding its new TouchWiz UX or TouchWiz 4.0 – includes a live panel, which lets you to customize with different content, such as your pictures, bookmarks, and social feeds, sporting a 10.1 inches WXGA capacitive touch screen with 1280 x 800 pixels of resolution, equipped with 3 megapixel rear camera with LED flash and a 2 megapixel front camera, HSPA+ connectivity up to 21Mbps, 720p HD video recording capability, 1080p HD playback, DLNA support, Bluetooth 2.1, USB 2.0, gyroscope, Wi-Fi 802.11 a/b/g/n, micro-SD slot, 3.5mm headphone jack, and SIM slot, including the Samsung Stick – a Bluetooth microphone that can be carried in a pocket like a pen and sound dock with powered subwoofer. Samsung Galaxy Tab 10.1 will come in 16GB / 32GB / 64GB verities and pre-loaded with Social Hub, Reader’s Hub, Music Hub and Samsung Mini Apps Tray – which gives you access to more commonly used apps to help ease multitasking and it is capable of Adobe Flash Player 10.2, powered by 6860mAh battery that gives you 10hours of video-playback time. äö  ",
+    "category": "digital-camera"
+  },
+  {
+    "name": "suscipit laboriosam nisi",
+    "id": 44,
+    "img": "../images/phone2.jpg",
+    "availabilty": "In-Stock",
+    "brand": "Quisquam",
+    "newprice": 100.0,
+    "descrption": "Stop your co-workers in their tracks with the stunning new 30-inch diagonal HP LP3065 Flat Panel Monitor. This flagship monitor features best-in-class performance and presentation features on a huge wide-aspect screen while letting you work as comfortably as possible - you might even forget you're at the office",
+    "category": "phone"
+  },
+  {
+    "name": "aliquam quaerat voluptatem",
+    "id": 6,
+    "img": "../images/iphone.jpg",
+    "availabilty": "In-Stock",
+    "brand": "Quisquam",
+    "newprice": 100.0,
+    "descrption": "More room to move.  With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.    Cover Flow.   Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list. Enhanced interface.  Experience a whole new way to browse and view your music and video.  Sleeker design. Beautiful, durable, and sleeker than ever, iPod classic now features an anodized aluminum and polished stainless steel enclosure with rounded edges.",
+    "category": "iphone"
+  },
+  {
+    "name": "voluptas sit aspernatur",
+    "id": 17,
+    "img": "../images/smartwatch.jpg",
+    "availabilty": "In-Stock",
+    "brand": "Omnis",
+    "oldprice": 101.0,
+    "newprice": 94.0,
+    "descrption": "iPhone is a revolutionary new mobile phone that allows you to make a call by simply tapping a name or number in your address book, a favorites list, or a call log. It also automatically syncs all your contacts from a PC, Mac, or Internet service. And it lets you select and listen to voicemail messages in whatever order you want just like email.",
+    "category": "watch"
+  },
+  {
+    "name": "aspetur autodit autfugit",
+    "id": 1,
+    "img": "../images/camera.jpg",
+    "availabilty": "Pre-Order",
+    "newprice": 1699.0,
+    "descrption": "Samsung Galaxy Tab 10.1, is the world’s thinnest tablet, measuring 8.6 mm thickness, running with Android 3.0 Honeycomb OS on a 1GHz dual-core Tegra 2 processor, similar to its younger brother Samsung Galaxy Tab 8.9.    Samsung Galaxy Tab 10.1 gives pure Android 3.0 experience, adding its new TouchWiz UX or TouchWiz 4.0 – includes a live panel, which lets you to customize with different content, such as your pictures, bookmarks, and social feeds, sporting a 10.1 inches WXGA capacitive touch screen with 1280 x 800 pixels of resolution, equipped with 3 megapixel rear camera with LED flash and a 2 megapixel front camera, HSPA+ connectivity up to 21Mbps, 720p HD video recording capability, 1080p HD playback, DLNA support, Bluetooth 2.1, USB 2.0, gyroscope, Wi-Fi 802.11 a/b/g/n, micro-SD slot, 3.5mm headphone jack, and SIM slot, including the Samsung Stick – a Bluetooth microphone that can be carried in a pocket like a pen and sound dock with powered subwoofer. Samsung Galaxy Tab 10.1 will come in 16GB / 32GB / 64GB verities and pre-loaded with Social Hub, Reader’s Hub, Music Hub and Samsung Mini Apps Tray – which gives you access to more commonly used apps to help ease multitasking and it is capable of Adobe Flash Player 10.2, powered by 6860mAh battery that gives you 10hours of video-playback time. äö  ",
+    "category": "digital-camera"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Answers To Your Questions... ",
+    "id": 1,
+    "img": "../images/blog1.jpg",
+    "date": "10/1/2024",
+    "blog": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.  "
+  },
+  {
+    "title": "Answers To Your Questions... ",
+    "id": 2,
+    "img": "../images/blog2.jpg",
+    "date": "1/1/2024",
+    "blog": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.  "
+  },
+  {
+    "title": "Answers To Your Questions... ",
+    "id": 3,
+    "img": "../images/blog3.jpg",
+    "date": "4/1/2024",
+    "blog": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.  "
+  },
+  {
+    "title": "Answers To Your Questions... ",
+    "id": 4,
+    "img": "../images/blog4.jpg",
+    "date": "2/1/2024",
+    "blog": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.  "
+  },
+  {
+    "title": "Answers To Your Questions... ",
+    "id": 5,
+    "img": "../images/blog1.jpg",
+    "date": "13/1/2024",
+    "blog": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.  "
+  }
+]
