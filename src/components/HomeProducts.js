@@ -14,7 +14,7 @@ function HomeProducts({ name, id, img, newprice, oldprice }) {
   return (
     <div
       key={id}
-      className={`text-dark border-2 border-light  relative h-fit p-5 w-fit my-5 ${
+      className={`text-dark border-2 border-light  relative h-fit p-1 w-fit my-5 ${
         hoveredLink === id ? "shadow-md " : "shadow-none"
       } `}
       onMouseEnter={() => setHoveredLink(id)}

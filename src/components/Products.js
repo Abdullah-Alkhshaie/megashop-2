@@ -147,7 +147,7 @@ function Products() {
           activeTab === "latest" ||
           activeTab === "special") &&
         isXLScreen ? (
-          <div className="grid mr-5 gap-5  lg:grid-cols-4 md:grid-cols-2 grid-cols-1 p-5 bg-white h-full ">
+          <div className="grid mr-5 gap-1  lg:grid-cols-4 md:grid-cols-2 grid-cols-1 p-5 bg-white h-full ">
             {activeTab === "featured" &&
               feature.map((product) => (
                 <div key={product.id} className="px-2">
