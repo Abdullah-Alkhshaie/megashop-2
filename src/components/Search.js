@@ -41,7 +41,7 @@ function Search() {
         value={searchTerm}
         onChange={handleInputChange}
         onKeyDown={handleEnterKeyPress}
-        className="px-5 py-2 outline-none text-font rounded-l-md md:w-[400px]"
+        className="px-5 py-2 outline-none text-font rounded-l-md xl:w-[400px]"
       />
       <button
         onClick={handleSearchClick}

@@ -7,10 +7,10 @@ function Header() {
 
   return (
     <div className="xl:hidden rounded-t-lg items-center cursor-pointer">
-      <div className="bg-primary w-full b">
+      <div className="bg-primary md:px-10 w-full b">
         <div
           onClick={() => setActiveBar(!activeBar)}
-          className={`flex text-white justify-between rounded-t-lg bg-red-600 px-4 py-2`}
+          className={`flex text-white justify-between rounded-t-lg bg-red-600 px-5 py-2`}
         >
           <h1>Categories </h1>
           <FaBars size={25} />

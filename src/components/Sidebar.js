@@ -8,7 +8,7 @@ import FeaturedProduct from "./FeaturedProduct";
 
 function Sidebar() {
   return (
-    <div className="xl:px-0 h-full  hidden xl:block  w-[400px] ">
+    <div className="xl:px-5 h-full  hidden xl:block  w-[400px] ">
       <div className="w-[350px] p-5 bg-white">
         <h1 className="text-2xl tracking-wider">Categories</h1>
         <Categories />
