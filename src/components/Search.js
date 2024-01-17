@@ -34,7 +34,7 @@ function Search() {
   };
 
   return (
-    <div className="order-4 lg:order-none text-center">
+    <div className="order-4 flex lg:order-none text-center">
       <input
         type="text"
         placeholder="Search"
