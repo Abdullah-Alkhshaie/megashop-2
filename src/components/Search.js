@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm } from "../RTK/slice/SearchSlice";
 import { fetchAllProduct } from "../RTK/slice/ProductSlice";
 import { useNavigate } from "react-router-dom";
+import { CiSearch } from "react-icons/ci";
 
 function Search() {
   const dispatch = useDispatch();
@@ -27,27 +28,29 @@ function Search() {
         dispatch(fetchAllProduct());
         navigate("/productlist");
       } else {
-        // Prevent the default behavior of the Enter key
         e.preventDefault();
       }
     }
   };
 
   return (
-    <div className="order-4 flex lg:order-none text-center">
+    <div className="order-4 px-2 flex lg:order-none text-center">
       <input
         type="text"
         placeholder="Search"
         value={searchTerm}
         onChange={handleInputChange}
         onKeyDown={handleEnterKeyPress}
-        className="md:px-5 py-2 w-fit outline-none text-font rounded-l-md xl:w-[400px]"
+        className="px-5 py-2 w-fit outline-none text-font rounded-l-md xl:w-[400px]"
       />
       <button
         onClick={handleSearchClick}
-        className="bg-black px-5 py-2 rounded-r-md"
+        className=" bg-black px-2 md:px-5 py-2 rounded-r-md"
       >
-        Search
+        <span className=" md:hidden">
+          <CiSearch />
+        </span>
+        <span className="hidden md:block">Search</span>
       </button>
     </div>
   );
