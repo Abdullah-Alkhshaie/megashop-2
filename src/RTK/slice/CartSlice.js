@@ -23,18 +23,18 @@ const cartSlice = createSlice({
   initialState: { items: getItemLocalStorage() },
   reducers: {
     addToCart: (state, action) => {
-      const { id, name, newprice, img } = action.payload;
+      const { id, name, newprice, img, quantity } = action.payload;
       const existingProduct = state.items.find((product) => product.id === id);
 
       if (existingProduct) {
-        existingProduct.quantity += 1;
+        existingProduct.quantity += quantity;
       } else {
         state.items.push({
           id,
           img,
           name,
           newprice,
-          quantity: 1,
+          quantity,
         });
       }
       setItemLocalStorage(state.items);
@@ -44,9 +44,8 @@ const cartSlice = createSlice({
       const increaseProduct = state.items.find((product) => product.id === id);
       if (increaseProduct) {
         increaseProduct.quantity += 1;
-      } else {
-        setItemLocalStorage(state.items);
       }
+      setItemLocalStorage(state.items);
     },
     decreaseQuantity: (state, action) => {
       const { id } = action.payload;
@@ -55,7 +54,7 @@ const cartSlice = createSlice({
       );
       if (decreaseProductIndex !== -1) {
         const decreaseProduct = state.items[decreaseProductIndex];
-        if (decreaseProduct > 1) {
+        if (decreaseProduct.quantity > 1) {
           decreaseProduct.quantity -= 1;
         } else {
           state.items.splice(decreaseProductIndex, 1);
@@ -63,10 +62,10 @@ const cartSlice = createSlice({
       }
       setItemLocalStorage(state.items);
     },
-    removeFromCart: (state, actino) => {
-      const { id } = actino.payload;
+    removeFromCart: (state, action) => {
+      const { id } = action.payload;
       const updateCart = state.items.filter((product) => product.id !== id);
-      setItemLocalStorage([...updateCart]);
+      setItemLocalStorage(updateCart);
       return { ...state, items: updateCart };
     },
     clearCart: (state) => {

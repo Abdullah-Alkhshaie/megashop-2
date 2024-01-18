@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { CiHeart } from "react-icons/ci";
+import { useDispatch } from "react-redux";
 import { LuShoppingCart } from "react-icons/lu";
 import { useSelector } from "react-redux";
+import { addToCart } from "../RTK/slice/CartSlice";
 import SearchResult from "../components/SearchResult";
 
 const ProductList = () => {
   const [hoveredLink, setHoveredLink] = useState(null);
+  const dispatch = useDispatch();
 
   const products = useSelector((state) => state.products.allProduct);
   const selectedCategory = useSelector(
@@ -22,6 +25,11 @@ const ProductList = () => {
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : filteredByCategory;
+
+  const handleAddToCart = () => {
+    const { id, name, img, newprice } = products;
+    dispatch(addToCart({ id, name, img, newprice }));
+  };
 
   return (
     <div className="grid lg:max-w-full p-5 mx-10 lg:mx-3 bg-white gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full  ">
@@ -65,7 +73,10 @@ const ProductList = () => {
               hoveredLink === product.id ? "opacity-1 " : "lg:opacity-0"
             }`}
           >
-            <p className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10">
+            <p
+              onClick={handleAddToCart}
+              className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10"
+            >
               <LuShoppingCart size={25} />
             </p>
             <p className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10">

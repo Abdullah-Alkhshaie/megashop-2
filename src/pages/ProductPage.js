@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProduct } from "../RTK/slice/ProductSlice";
 import { LuShoppingCart } from "react-icons/lu";
 import { FaHeart } from "react-icons/fa";
+import { addToCart } from "../RTK/slice/CartSlice";
 
 function ProductPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1); // State to track quantity
 
   const allProducts = useSelector((state) => state.products.allProduct);
   const product =
@@ -26,6 +28,16 @@ function ProductPage() {
   if (status === "loading" || !product) {
     return <div>Loading...</div>;
   }
+
+  const handleAddToCart = () => {
+    const { id, img, name, newprice } = product;
+    dispatch(addToCart({ id, img, name, newprice, quantity }));
+  };
+
+  const handleQuantityChange = (e) => {
+    const newQuantity = parseInt(e.target.value, 10);
+    setQuantity(isNaN(newQuantity) ? 1 : newQuantity);
+  };
 
   return (
     <div className="px-5 md:px-10">
@@ -70,8 +82,16 @@ function ProductPage() {
             <div className="border-b border-gray pb-5">
               <div className="flex  gap-10 mt-5 items-center">
                 <p className="text-lg text-dark"> QTY</p>
-                <p>1</p>
-                <button className="bg-primary flex items-center gap-1 md:gap-3 text-white lg:px-6 hover:bg-font px-1 md:px-3 py-2 lg:py-3 text-base md:text-lg rounded-md">
+                <input
+                  type="number"
+                  className="border outline-none w-[80px] border-gray px-3 py-1 "
+                  value={quantity}
+                  onChange={handleQuantityChange}
+                />
+                <button
+                  onClick={handleAddToCart}
+                  className="bg-primary flex items-center gap-1 md:gap-3 text-white lg:px-6 hover:bg-font px-1 md:px-3 py-2 lg:py-3 text-base md:text-lg rounded-md"
+                >
                   <LuShoppingCart size={25} /> Add To Cart
                 </button>
               </div>

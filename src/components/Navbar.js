@@ -5,11 +5,13 @@ import { LuShoppingCart } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import ResponsiveCategories from "./ResponsiveCategories";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../RTK/slice/CartSlice";
 
 function Navbar() {
   const [isSticky, setSticky] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +29,17 @@ function Navbar() {
     (accumulator, item) => accumulator + item.quantity,
     0
   );
+
+  const handleAddToCart = () => {
+    const productToAdd = {
+      id: 1,
+      name: "Example",
+      img: "example.jpg",
+      newprice: 10,
+      quantity: 1,
+    };
+    dispatch(addToCart(productToAdd));
+  };
 
   return (
     <>
@@ -57,8 +70,8 @@ function Navbar() {
             <Link to="/cart">
               <div className="flex cursor-pointer relative ">
                 <LuShoppingCart size={30} />
-                <span className="bg-white absolute -right-2 -top-2 flex items-center justify-center text-sm  text-black w-5 h-5 rounded-full">
-                  {totalQuantity}
+                <span className="bg-white absolute -right-2 -top-2 flex items-center justify-center text-sm text-black w-5 h-5 rounded-full">
+                  {isNaN(totalQuantity) ? 0 : totalQuantity}
                 </span>
               </div>
             </Link>

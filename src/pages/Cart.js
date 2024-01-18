@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
+  const cart = useSelector((state) => state.cart.items);
 
   const [activeCoupon, setActiveCoupon] = useState(false);
   const [activeGiftCard, setActiveGiftCard] = useState(false);
@@ -21,10 +22,8 @@ function Cart() {
 
   const handleApplyCoupon = () => {
     if (couponInput === "49283492") {
-      // Coupon code matches, you can apply the coupon logic here
       setCouponMessage("Coupon applied successfully!");
     } else {
-      // Coupon code does not match
       setCouponMessage(
         "Warning: Coupon is either invalid, expired or reached its usage limit!"
       );
@@ -62,7 +61,37 @@ function Cart() {
 
   return (
     <div className="md:px-10 xl:mr-3">
-      <CartTableItems />
+      <div className="overflow-x-auto">
+        <table className="w-full table-auto bg-white border border-gray">
+          <thead>
+            <tr className="border border-gray">
+              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                Image
+              </th>
+              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                Product Name
+              </th>
+              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                Model
+              </th>
+              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                Quantity
+              </th>
+              <th className="py-1 px-3 whitespace-nowrap lg:p-3 border border-gray tracking-wider ">
+                Unit Price
+              </th>
+              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                Total
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((product) => (
+              <CartTableItems key={product.id} {...product} />
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="mt-10 px-3">
         <div>
           <h1 className="text-xl">What Would You Like To Do Next? </h1>

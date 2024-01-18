@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../RTK/slice/CartSlice";
 
 function HomeProducts({ name, id, img, newprice, oldprice }) {
-  const [hoveredLink, setHoveredLink] = useState(null);
+  const [hoveredLink, setHoveredLink] = useState("");
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function HomeProducts({ name, id, img, newprice, oldprice }) {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ id, name, img, newprice }));
+    dispatch(addToCart({ id, name, img, newprice, quantity: 1 })); // Provide the quantity property
   };
 
   return (
