@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, clearCart } from "../RTK/slice/CartSlice";
+import { removeFromCart } from "../RTK/slice/CartSlice";
 import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
