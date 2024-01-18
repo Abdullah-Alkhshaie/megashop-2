@@ -89,7 +89,7 @@ function Cart() {
               <div
                 className={`border overflow-hidden border-gray text-dark px-5 py-2 bg-white ${
                   activeCoupon
-                    ? "h-[150px] opacity-1 duration-300"
+                    ? "h-[180px]  md:h-[150px] opacity-1 duration-300"
                     : "h-0 opacity-0 duration-300"
                 }`}
               >
@@ -97,7 +97,7 @@ function Cart() {
                 <div className="mt-2 w-full p-3 flex">
                   <input
                     type="text"
-                    className="border outline-none w-[100px] border-gray px-3 py-1 "
+                    className="border outline-none w-[130px] border-gray px-3 py-1 "
                     placeholder="Enter your coupon here"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value)}
@@ -132,7 +132,7 @@ function Cart() {
               <div
                 className={`border overflow-hidden border-gray text-dark px-5 py-2 bg-white ${
                   activeGiftCard
-                    ? "h-[150px] opacity-1 duration-300"
+                    ? "h-[180px]  md:h-[150px] opacity-1 duration-300"
                     : "h-0 opacity-0 duration-300"
                 }`}
               >
