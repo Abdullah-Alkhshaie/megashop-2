@@ -6,14 +6,12 @@ const SearchResult = () => {
 
   return (
     <div>
-      {searchResults.length > 0 ? (
+      {searchResults.length > 0 && (
         <ul>
           {searchResults.map((result) => (
             <li key={result.id}>{result.name}</li>
           ))}
         </ul>
-      ) : (
-        <p>No results found.</p>
       )}
     </div>
   );

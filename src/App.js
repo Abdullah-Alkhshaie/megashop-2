@@ -4,19 +4,21 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import ContactUs from "./pages/ContactUs";
-import AccountLogin from "./pages/AccountLogin";
+import Login from "./pages/Login";
 import Register from "./pages/Register";
 import WishList from "./pages/WishList";
 import Sidebar from "./components/Sidebar";
 import ProductList from "./pages/ProductList";
 import Footer from "./pages/Footer";
 import ProductPage from "./pages/ProductPage";
-import AccountSignIn from "./pages/AccountSignIn";
+import SignIn from "./pages/SignIn";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="bg-light h-full">
       <BrowserRouter>
+        <Header />
         <Navbar />
         <div className="xl:flex gap-10  my-5">
           <div className="xl:w-1/4">
@@ -27,8 +29,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="cart" element={<Cart />} />
               <Route path="contact" element={<ContactUs />} />
-              <Route path="AccountLogin" element={<AccountLogin />} />
-              <Route path="AccountSignIn" element={<AccountSignIn />} />
+              <Route path="Login" element={<Login />} />
+              <Route path="SignIn" element={<SignIn />} />
               <Route path="register" element={<Register />} />
               <Route path="wishlist" element={<WishList />} />
               <Route path="productlist" element={<ProductList />} />

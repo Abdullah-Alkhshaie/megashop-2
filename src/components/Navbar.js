@@ -4,7 +4,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { LuShoppingCart } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import Search from "./Search";
-import Header from "./Header";
+import ResponsiveCategories from "./ResponsiveCategories";
 
 function Navbar() {
   const [isSticky, setSticky] = useState(false);
@@ -16,7 +16,6 @@ function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener when the component is unmounted
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -26,12 +25,10 @@ function Navbar() {
     <>
       <div
         className={`bg-primary text-white lg:px-16 py-8 flex flex-col lg:flex-row items-center gap-4 justify-between ${
-          isSticky ? "fixed top-0 duration-300 w-full z-50" : "-top-20"
+          isSticky
+            ? "lg:fixed lg:top-0 lg:duration-300 lg:w-full lg:z-50"
+            : "lg:-top-20"
         }`}
-        // style={{
-        //   transition: "background-color 0.3s ease", // Add transition for smooth color change
-        //   top: isSticky ? 0 : undefined,
-        // }}
       >
         <div>
           <Link to="/">
@@ -61,7 +58,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <Header />
+      <ResponsiveCategories />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function AccountLogin() {
+function Login() {
   return (
     <div className="flex flex-col md:flex-row gap-5 mx-5">
       <div className="flex-1 bg-white p-5">
@@ -11,9 +12,11 @@ function AccountLogin() {
           on an order's status, and keep track of the orders you have previously
           made.
         </p>
-        <button className="bg-primary mt-10 lg:mt-16 flex items-center text-white lg:px-6 hover:bg-font px-1 md:px-3 py-2 lg:py-3 text-base md:text-lg rounded-md">
-          Continue
-        </button>
+        <Link to="/SignIn">
+          <button className="bg-primary mt-10 lg:mt-16 flex items-center text-white lg:px-6 hover:bg-font px-1 md:px-3 py-2 lg:py-3 text-base md:text-lg rounded-md">
+            Continue
+          </button>
+        </Link>
       </div>
       <div className="flex-1 flex flex-col bg-white p-5 text-dark">
         <h1 className="text-xl text-font ">Returning Customer</h1>
@@ -42,4 +45,4 @@ function AccountLogin() {
   );
 }
 
-export default AccountLogin;
+export default Login;

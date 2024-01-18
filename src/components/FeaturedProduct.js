@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFeaturedProduct } from "../RTK/slice/ProductSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { addToCart } from "../RTK/slice/CartSlice";
 
 function FeaturedProduct() {
   const dispatch = useDispatch();
   const [hoveredLink, setHoveredLink] = useState(null);
-
   const navigate = useNavigate();
 
   const featuredStatu = useSelector((state) => state.products.featuredStatu);
@@ -24,6 +24,13 @@ function FeaturedProduct() {
     window.scrollTo({ top: 0 });
     navigate(`/productpage/${featuredProduct.id}`);
   };
+
+  const handleAddToCart = () => {
+    const { id, img, name, newprice } = featuredProduct;
+
+    dispatch(addToCart({ id, img, name, newprice }));
+  };
+
   return (
     <div className="">
       {featuredProduct.map((product) => (
@@ -58,7 +65,10 @@ function FeaturedProduct() {
                 </p>
               )}
             </div>
-            <button className="text-dark cursor-pointer duration-300 hover:text-font text-md">
+            <button
+              onClick={handleAddToCart}
+              className="text-dark cursor-pointer duration-300 hover:text-font text-md"
+            >
               Add To Cart
             </button>
           </div>

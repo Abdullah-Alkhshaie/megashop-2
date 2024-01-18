@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { LuShoppingCart } from "react-icons/lu";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { addToCart } from "../RTK/slice/CartSlice";
 
 function HomeProducts({ name, id, img, newprice, oldprice }) {
   const [hoveredLink, setHoveredLink] = useState(null);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const handleClick = () => {
     window.scrollTo({ top: 0 });
     navigate(`/productpage/${id}`);
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id, name, img, newprice }));
   };
 
   return (
@@ -49,7 +57,10 @@ function HomeProducts({ name, id, img, newprice, oldprice }) {
           hoveredLink === id ? "opacity-1 " : "opacity-0"
         }`}
       >
-        <p className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10">
+        <p
+          onClick={handleAddToCart}
+          className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10"
+        >
           <LuShoppingCart size={25} />
         </p>
         <p className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10">
