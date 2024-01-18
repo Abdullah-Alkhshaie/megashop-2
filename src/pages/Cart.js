@@ -97,7 +97,7 @@ function Cart() {
                 <div className="mt-2 w-full p-3 flex">
                   <input
                     type="text"
-                    className="border outline-none  border-gray px-3 py-1 "
+                    className="border outline-none w-[100px] border-gray px-3 py-1 "
                     placeholder="Enter your coupon here"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value)}
@@ -137,10 +137,10 @@ function Cart() {
                 }`}
               >
                 <p>Enter your gift certificate code here</p>
-                <div className="mt-2 w-full p-3 flex">
+                <div className="mt-2 w-full p-3 flex ">
                   <input
                     type="text"
-                    className="border outline-none flex-1 border-gray px-3 py-1 "
+                    className="border outline-none flex-1 w-[100px] border-gray px-3 py-1 "
                     placeholder="Enter your gift certificate code here"
                     value={giftInput}
                     onChange={(e) => setGiftInput(e.target.value)}
@@ -192,7 +192,7 @@ function Cart() {
         </div>
         <div className="flex mt-5 text-white justify-between">
           <Link to="/">
-            <button className="bg-primary hover:bg-font px-2 py-1">
+            <button className="bg-primary hover:bg-font px-3 py-1">
               Continue Shopping
             </button>
           </Link>
