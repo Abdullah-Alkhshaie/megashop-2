@@ -5,9 +5,11 @@ import { LuShoppingCart } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import ResponsiveCategories from "./ResponsiveCategories";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [isSticky, setSticky] = useState(false);
+  const cartItems = useSelector((state) => state.cart.items);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +22,11 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const totalQuantity = cartItems.reduce(
+    (accumulator, item) => accumulator + item.quantity,
+    0
+  );
 
   return (
     <>
@@ -51,7 +58,7 @@ function Navbar() {
               <div className="flex cursor-pointer relative ">
                 <LuShoppingCart size={30} />
                 <span className="bg-white absolute -right-2 -top-2 flex items-center justify-center text-sm  text-black w-5 h-5 rounded-full">
-                  3
+                  {totalQuantity}
                 </span>
               </div>
             </Link>
