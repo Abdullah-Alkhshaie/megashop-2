@@ -1,29 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  removeFromCart,
-  increaseQuantity,
-  decreaseQuantity,
-  clearCart,
-} from "../RTK/slice/CartSlice";
+import { removeFromCart, clearCart } from "../RTK/slice/CartSlice";
 import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
 function Cart() {
   const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
-
-  const totalPrice = () => {
-    const total = cart.reduce(
-      (total, product) => total + product.price * product.quantity,
-      0
-    );
-    return total.toFixed(2);
-  };
-
-  const handleClearCart = () => {
-    dispatch(clearCart());
-  };
 
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart({ id: productId }));
