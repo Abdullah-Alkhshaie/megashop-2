@@ -53,8 +53,8 @@ function HomeProducts({ name, id, img, newprice, oldprice }) {
         </div>
       </div>
       <div
-        className={`flex gap-3 duration-300 absolute top-[62%]  left-5 ${
-          hoveredLink === id ? "opacity-1 " : "opacity-0"
+        className={`flex gap-3 duration-300 absolute top-[68%]  left-5 ${
+          hoveredLink === id ? "opacity-1 " : "lg:opacity-0"
         }`}
       >
         <p

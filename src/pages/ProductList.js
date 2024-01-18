@@ -13,12 +13,10 @@ const ProductList = () => {
   );
   const searchTerm = useSelector((state) => state.search.searchTerm);
 
-  // Filter products based on the selected category
   const filteredByCategory = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
     : products;
 
-  // Filter products based on the search term
   const filteredProducts = searchTerm
     ? filteredByCategory.filter((product) =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -63,8 +61,8 @@ const ProductList = () => {
             </div>
           </div>
           <div
-            className={`flex gap-3 duration-300 absolute top-[62%]  left-5 ${
-              hoveredLink === product.id ? "opacity-1 " : "opacity-0"
+            className={`flex gap-3 duration-300 absolute top-[67%]  left-5 ${
+              hoveredLink === product.id ? "opacity-1 " : "lg:opacity-0"
             }`}
           >
             <p className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10">
@@ -76,7 +74,6 @@ const ProductList = () => {
           </div>
         </div>
       ))}
-      {/* Render SearchResults component */}
       {searchTerm && <SearchResult results={filteredProducts} />}
     </div>
   );

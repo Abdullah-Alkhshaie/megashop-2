@@ -30,7 +30,7 @@ function Cart() {
               <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
                 Quantity
               </th>
-              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+              <th className="py-1 px-3 whitespace-nowrap lg:p-3 border border-gray tracking-wider ">
                 Unit Price
               </th>
               <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
@@ -41,8 +41,11 @@ function Cart() {
           <tbody>
             {cart.map((product) => (
               <tr key={product.id}>
-                <td className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
-                  <Link to={`/productpage/${product.id}`}>
+                <td className="py-1 px-3 text-center lg:p-3 border border-gray tracking-wider ">
+                  <Link
+                    className="flex justify-center"
+                    to={`/productpage/${product.id}`}
+                  >
                     <img
                       src={product.img}
                       className="w-[100px]"
@@ -50,10 +53,15 @@ function Cart() {
                     />
                   </Link>
                 </td>
-                <td className="py-1 px-3  lg:p-3 border hover:text-font border-gray tracking-wider text-dark">
-                  <Link to={`/productpage/${product.id}`}>{product.name}</Link>
+                <td className="py-1 px-3 lg:p-3 border whitespace-nowrap lg:whitespace-normal hover:text-font border-gray tracking-wider text-dark">
+                  <Link
+                    className="flex justify-center"
+                    to={`/productpage/${product.id}`}
+                  >
+                    <p>{product.name}</p>
+                  </Link>
                 </td>
-                <td className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                <td className="py-1 px-3 whitespace-nowrap lg:p-3 border border-gray tracking-wider ">
                   Product {product.id}
                 </td>
                 <td className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
@@ -66,7 +74,7 @@ function Cart() {
                     </button>
                   </div>
                 </td>
-                <td className="py-1 px-3  lg:p-3 border border-gray font-bold tracking-wider ">
+                <td className="py-1 px-3  whitespace-nowrap lg:p-3 border border-gray font-bold tracking-wider ">
                   ${product.newprice}
                 </td>
                 <td className="py-1 px-3  lg:p-3 border border-gray font-bold tracking-wider ">
