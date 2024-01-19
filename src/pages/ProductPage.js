@@ -5,11 +5,12 @@ import { fetchAllProduct } from "../RTK/slice/ProductSlice";
 import { LuShoppingCart } from "react-icons/lu";
 import { FaHeart } from "react-icons/fa";
 import { addToCart } from "../RTK/slice/CartSlice";
+import { addToWishList } from "../RTK/slice/WishListSlice";
 
 function ProductPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1); // State to track quantity
+  const [quantity, setQuantity] = useState(1);
 
   const allProducts = useSelector((state) => state.products.allProduct);
   const product =
@@ -18,6 +19,7 @@ function ProductPage() {
       : null;
 
   const status = useSelector((state) => state.products.alltStatu);
+  const wishlist = useSelector((state) => state.wishList.items);
 
   useEffect(() => {
     if (!allProducts || allProducts.length === 0) {
@@ -32,6 +34,20 @@ function ProductPage() {
   const handleAddToCart = () => {
     const { id, img, name, newprice } = product;
     dispatch(addToCart({ id, img, name, newprice, quantity }));
+  };
+  const handleAddToWishList = () => {
+    const { id, img, name, newprice, oldprice, availabilty } = product;
+    dispatch(
+      addToWishList({
+        id,
+        img,
+        name,
+        newprice,
+        quantity,
+        oldprice,
+        availabilty,
+      })
+    );
   };
 
   const handleQuantityChange = (e) => {
@@ -96,7 +112,10 @@ function ProductPage() {
                 </button>
               </div>
               <div>
-                <p className="flex items-center gap-2 hover:text-font capitalize text-dark mt-5 text-lg cursor-pointer">
+                <p
+                  onClick={handleAddToWishList}
+                  className="flex items-center gap-2 hover:text-font capitalize text-dark mt-5 text-lg cursor-pointer"
+                >
                   <FaHeart size={20} /> add to wish list
                 </p>
               </div>

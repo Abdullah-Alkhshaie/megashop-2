@@ -40,9 +40,9 @@ function WishListTabelItems({
       <td className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
         {availabilty}
       </td>
-      <td className="py-1 px-3  whitespace-nowrap lg:p-3 border border-gray font-bold tracking-wider ">
-        <span>${newprice}</span>
-        <span>${oldprice}</span>
+      <td className="py-1 px-3  whitespace-nowrap lg:p-3 border border-gray  tracking-wider ">
+        <span className="text-dark mr-2">${newprice}</span>
+        <span className="text-dark line-through">${oldprice}</span>
       </td>
       <td className="py-1 px-3   lg:p-3 border border-gray font-bold tracking-wider ">
         <div className="flex gap-1 justify-center">
