@@ -5,13 +5,11 @@ import { LuShoppingCart } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import ResponsiveCategories from "./ResponsiveCategories";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../RTK/slice/CartSlice";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [isSticky, setSticky] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleScroll = () => {
