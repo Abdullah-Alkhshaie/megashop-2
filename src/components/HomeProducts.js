@@ -4,8 +4,9 @@ import { LuShoppingCart } from "react-icons/lu";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../RTK/slice/CartSlice";
+import { addToWishList } from "../RTK/slice/WishListSlice";
 
-function HomeProducts({ name, id, img, newprice, oldprice }) {
+function HomeProducts({ name, id, img, newprice, oldprice, availabilty }) {
   const [hoveredLink, setHoveredLink] = useState("");
   const dispatch = useDispatch();
 
@@ -17,6 +18,10 @@ function HomeProducts({ name, id, img, newprice, oldprice }) {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ id, name, img, newprice, quantity: 1 })); // Provide the quantity property
+  };
+
+  const handleAddToWishList = () => {
+    dispatch(addToWishList({ id, name, img, newprice, oldprice, availabilty }));
   };
 
   return (
@@ -63,7 +68,10 @@ function HomeProducts({ name, id, img, newprice, oldprice }) {
         >
           <LuShoppingCart size={25} />
         </p>
-        <p className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10">
+        <p
+          onClick={handleAddToWishList}
+          className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10"
+        >
           <CiHeart size={25} />
         </p>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { IoIosCall } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { CiMail } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 function SeconsFooter() {
   return (
@@ -48,9 +49,11 @@ function SeconsFooter() {
           <li className="text-dark hover:text-primary cursor-pointer">
             Order History
           </li>
-          <li className="text-dark hover:text-primary cursor-pointer">
-            Wish List
-          </li>
+          <Link to="/wishlist">
+            <li className="text-dark hover:text-primary cursor-pointer">
+              Wish List
+            </li>
+          </Link>
           <li className="text-dark hover:text-primary cursor-pointer">
             Newsletter
           </li>

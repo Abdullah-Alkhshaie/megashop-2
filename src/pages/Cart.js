@@ -61,37 +61,44 @@ function Cart() {
 
   return (
     <div className="md:px-10 xl:mr-3">
-      <div className="overflow-x-auto">
-        <table className="w-full table-auto bg-white border border-gray">
-          <thead>
-            <tr className="border border-gray">
-              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
-                Image
-              </th>
-              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
-                Product Name
-              </th>
-              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
-                Model
-              </th>
-              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
-                Quantity
-              </th>
-              <th className="py-1 px-3 whitespace-nowrap lg:p-3 border border-gray tracking-wider ">
-                Unit Price
-              </th>
-              <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
-                Total
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map((product) => (
-              <CartTableItems key={product.id} {...product} />
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {cart.length > 0 ? (
+        <div className="overflow-x-auto">
+          <table className="w-full table-auto bg-white border border-gray">
+            <thead>
+              <tr className="border border-gray">
+                <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                  Image
+                </th>
+                <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                  Product Name
+                </th>
+                <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                  Model
+                </th>
+                <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                  Quantity
+                </th>
+                <th className="py-1 px-3 whitespace-nowrap lg:p-3 border border-gray tracking-wider ">
+                  Unit Price
+                </th>
+                <th className="py-1 px-3  lg:p-3 border border-gray tracking-wider ">
+                  Total
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((product) => (
+                <CartTableItems key={product.id} {...product} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div className="text-center mt-8 bg-white p-4">
+          <p className="text-gray-600">Your cart is empty.</p>
+          <p className="text-gray-600">Start shopping now!</p>
+        </div>
+      )}
       <div className="mt-10 px-3">
         <div>
           <h1 className="text-xl">What Would You Like To Do Next? </h1>
