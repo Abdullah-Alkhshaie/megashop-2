@@ -1,7 +1,7 @@
 import React from "react";
 import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeFromWishList } from "../RTK/slice/WishListSlice";
 import { LuShoppingCart } from "react-icons/lu";
 import { addToCart } from "../RTK/slice/CartSlice";
@@ -12,7 +12,6 @@ function WishListTabelItems({
   img,
   newprice,
   oldprice,
-  quantity,
   availabilty,
 }) {
   const dispatch = useDispatch();
