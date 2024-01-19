@@ -5,6 +5,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { useSelector } from "react-redux";
 import { addToCart } from "../RTK/slice/CartSlice";
 import SearchResult from "../components/SearchResult";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -26,6 +27,10 @@ const ProductList = () => {
       )
     : filteredByCategory;
 
+  const handleClick = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   const handleAddToCart = (productId) => {
     const product = filteredProducts.find((p) => p.id === productId);
     if (product) {
@@ -39,27 +44,31 @@ const ProductList = () => {
       {filteredProducts.map((product) => (
         <div
           key={product.id}
-          className={`text-dark relative  border border-gray  h-fit p-5 w-full ${
+          className={`text-dark border-2 border-light  relative h-fit p-1 w-fit my-2 ${
             hoveredLink === product.id ? "shadow-md " : "shadow-none"
           } `}
           onMouseEnter={() => setHoveredLink(product.id)}
           onMouseLeave={() => setHoveredLink(null)}
         >
           <div className="mb-10 lg:mb-16 ">
-            <img
-              className="w-[250px] z-0 cursor-pointer"
-              src={product.img}
-              alt={product.name}
-            />
+            <Link to={`/productpage/${product.id}`} onClick={handleClick}>
+              <img
+                className="w-[250px] z-0 cursor-pointer"
+                src={product.img}
+                alt={product.name}
+              />
+            </Link>
           </div>
           <div className="mt-5 flex flex-col lg:mt-10 lead leading-relaxed gap-1">
-            <h2
-              className={`capitalize text-lg duration-300 cursor-pointer tracking-wider ${
-                hoveredLink === product.id ? "text-black " : ""
-              } `}
-            >
-              {product.name.slice(0, 15)}...
-            </h2>
+            <Link to={`/productpage/${product.id}`} onClick={handleClick}>
+              <h2
+                className={`capitalize text-lg duration-300 cursor-pointer tracking-wider ${
+                  hoveredLink === product.id ? "text-black " : ""
+                } `}
+              >
+                {product.name.slice(0, 15)}...
+              </h2>
+            </Link>
             <div className="flex gap-5 text-center ">
               <p className="text-primary font-semibold text-lg">
                 ${product.newprice}.00
@@ -72,7 +81,7 @@ const ProductList = () => {
             </div>
           </div>
           <div
-            className={`flex gap-3 duration-300 absolute top-[67%]  left-5 ${
+            className={`flex gap-3 duration-300 absolute top-[68%]  left-5 ${
               hoveredLink === product.id ? "opacity-1 " : "lg:opacity-0"
             }`}
           >
