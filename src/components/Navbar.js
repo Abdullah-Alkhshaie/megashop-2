@@ -30,17 +30,6 @@ function Navbar() {
     0
   );
 
-  const handleAddToCart = () => {
-    const productToAdd = {
-      id: 1,
-      name: "Example",
-      img: "example.jpg",
-      newprice: 10,
-      quantity: 1,
-    };
-    dispatch(addToCart(productToAdd));
-  };
-
   return (
     <>
       <div
