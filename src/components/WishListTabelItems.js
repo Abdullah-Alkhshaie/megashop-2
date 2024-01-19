@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { removeFromWishList } from "../RTK/slice/WishListSlice";
 import { LuShoppingCart } from "react-icons/lu";
 import { addToCart } from "../RTK/slice/CartSlice";
+import { toast } from "react-toastify";
 
 function WishListTabelItems({
   id,
@@ -17,10 +18,12 @@ function WishListTabelItems({
   const dispatch = useDispatch();
   const handleRemoveWishList = (productId) => {
     dispatch(removeFromWishList({ id: productId }));
+    toast.error("Item removed from wishlist");
   };
 
   const handleAddToCart = () => {
     dispatch(addToCart({ id, name, img, newprice, quantity: 1 }));
+    toast.success("Item added to cart");
   };
   return (
     <tr key={id}>

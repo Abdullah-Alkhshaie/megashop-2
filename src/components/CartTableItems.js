@@ -3,11 +3,13 @@ import { removeFromCart } from "../RTK/slice/CartSlice";
 import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 function CartTableItems({ id, img, name, newprice, quantity }) {
   const dispatch = useDispatch();
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart({ id: productId }));
+    toast.error("Item removed from wishlist");
   };
   return (
     <tr key={id}>

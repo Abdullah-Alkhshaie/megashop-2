@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchFeaturedProduct } from "../RTK/slice/ProductSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../RTK/slice/CartSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function FeaturedProduct() {
   const dispatch = useDispatch();
@@ -30,6 +32,7 @@ function FeaturedProduct() {
     if (product) {
       const { id, img, name, newprice } = product;
       dispatch(addToCart({ id, img, name, newprice, quantity: 1 }));
+      toast.success("Item added to the cart!");
     }
   };
 
@@ -76,6 +79,7 @@ function FeaturedProduct() {
           </div>
         </div>
       ))}
+      <ToastContainer />
     </div>
   );
 }

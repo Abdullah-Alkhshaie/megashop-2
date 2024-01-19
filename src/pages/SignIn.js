@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { registerUser } from "../auth";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -16,14 +19,22 @@ function SignIn() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your logic for form submission/validation here
-    console.log("Form submitted:", formData);
+
+    try {
+      // Call the registerUser function from auth.js
+      const user = await registerUser(formData);
+
+      console.log("User registered:", user);
+      navigate("/");
+    } catch (error) {
+      console.error("Error registering user:", error.message);
+    }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white mx-3 rounded-md shadow-md">
+    <div className="max-w-md  mt-8 p-6 bg-white mx-3 rounded-md shadow-md">
       <h2 className="text-xl  mb-4">Registration Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -74,24 +85,6 @@ function SignIn() {
             id="password"
             name="password"
             value={formData.password}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md border-gray outline-none "
-            required
-          />
-        </div>
-
-        <div className="mb-4">
-          <label
-            className="block text-dark text-sm font-bold mb-2"
-            htmlFor="confirmPassword"
-          >
-            Confirm Password:
-          </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md border-gray outline-none "
             required

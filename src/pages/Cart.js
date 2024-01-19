@@ -4,6 +4,9 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import CartTableItems from "../components/CartTableItems";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -12,9 +15,7 @@ function Cart() {
   const [activeCoupon, setActiveCoupon] = useState(false);
   const [activeGiftCard, setActiveGiftCard] = useState(false);
   const [couponInput, setCouponInput] = useState("");
-  const [couponMessage, setCouponMessage] = useState("");
   const [giftInput, setGiftInput] = useState("");
-  const [giftMessage, setGiftMessage] = useState("");
   const [subTotal, setSubTotal] = useState(0);
   const [ecoTax, setEcoTax] = useState(0);
   const [VAT, setVAT] = useState(0);
@@ -22,21 +23,20 @@ function Cart() {
 
   const handleApplyCoupon = () => {
     if (couponInput === "49283492") {
-      setCouponMessage("Coupon applied successfully!");
+      toast.success("Coupon applied successfully!");
     } else {
-      setCouponMessage(
-        "Warning: Coupon is either invalid, expired or reached its usage limit!"
+      toast.error(
+        "Warning: Coupon is either invalid, expired, or reached its usage limit!"
       );
     }
   };
+
   const handleGiftCoupon = () => {
-    if (couponInput === "49283492") {
-      // Coupon code matches, you can apply the coupon logic here
-      setGiftMessage("Coupon applied successfully!");
+    if (giftInput === "49283492") {
+      toast.success("Gift Certificate applied successfully!");
     } else {
-      // Coupon code does not match
-      setGiftMessage(
-        " Warning: Gift Certificate is either invalid or the balance has been used up!"
+      toast.error(
+        "Warning: Gift Certificate is either invalid or the balance has been used up!"
       );
     }
   };
@@ -125,7 +125,7 @@ function Cart() {
               <div
                 className={`border overflow-hidden border-gray text-dark px-5 py-2 bg-white ${
                   activeCoupon
-                    ? "h-[180px]  md:h-[150px] opacity-1 duration-300"
+                    ? "h-[180px]  md:h-[100px] opacity-1 duration-300"
                     : "h-0 opacity-0 duration-300"
                 }`}
               >
@@ -134,7 +134,6 @@ function Cart() {
                   <input
                     type="text"
                     className="border outline-none w-[130px] border-gray px-3 py-1 "
-                    placeholder="Enter your coupon here"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value)}
                   />
@@ -145,11 +144,6 @@ function Cart() {
                     Apply Coupon
                   </button>
                 </div>
-                {couponMessage && (
-                  <p className="text-red-500 bg-[#f2dede] p-2">
-                    {couponMessage}
-                  </p>
-                )}
               </div>
             </div>
             <div className="">
@@ -168,7 +162,7 @@ function Cart() {
               <div
                 className={`border overflow-hidden border-gray text-dark px-5 py-2 bg-white ${
                   activeGiftCard
-                    ? "h-[180px]  md:h-[150px] opacity-1 duration-300"
+                    ? "h-[180px]  md:h-[100px] opacity-1 duration-300"
                     : "h-0 opacity-0 duration-300"
                 }`}
               >
@@ -177,7 +171,6 @@ function Cart() {
                   <input
                     type="text"
                     className="border outline-none flex-1 w-[100px] border-gray px-3 py-1 "
-                    placeholder="Enter your gift certificate code here"
                     value={giftInput}
                     onChange={(e) => setGiftInput(e.target.value)}
                   />
@@ -188,9 +181,6 @@ function Cart() {
                     Apply Gift Certificate
                   </button>
                 </div>
-                {giftMessage && (
-                  <p className="text-red-500 bg-[#f2dede] p-2">{giftMessage}</p>
-                )}
               </div>
             </div>
           </div>
@@ -237,6 +227,7 @@ function Cart() {
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

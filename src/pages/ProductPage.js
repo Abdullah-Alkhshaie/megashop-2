@@ -6,6 +6,8 @@ import { LuShoppingCart } from "react-icons/lu";
 import { FaHeart } from "react-icons/fa";
 import { addToCart } from "../RTK/slice/CartSlice";
 import { addToWishList } from "../RTK/slice/WishListSlice";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 function ProductPage() {
   const { id } = useParams();
@@ -33,6 +35,7 @@ function ProductPage() {
   const handleAddToCart = () => {
     const { id, img, name, newprice } = product;
     dispatch(addToCart({ id, img, name, newprice, quantity }));
+    toast.success("Item added to the cart!");
   };
   const handleAddToWishList = () => {
     const { id, img, name, newprice, oldprice, availabilty } = product;
@@ -47,6 +50,7 @@ function ProductPage() {
         availabilty,
       })
     );
+    toast.success("Item added to the wish list!");
   };
 
   const handleQuantityChange = (e) => {
@@ -130,6 +134,7 @@ function ProductPage() {
           <p>{product.descrption}</p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

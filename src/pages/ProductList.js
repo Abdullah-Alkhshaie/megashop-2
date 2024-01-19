@@ -6,6 +6,9 @@ import { useSelector } from "react-redux";
 import { addToCart } from "../RTK/slice/CartSlice";
 import SearchResult from "../components/SearchResult";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { addToWishList } from "../RTK/slice/WishListSlice";
 
 const ProductList = () => {
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -36,9 +39,20 @@ const ProductList = () => {
     if (product) {
       const { id, name, img, newprice } = product;
       dispatch(addToCart({ id, name, img, newprice, quantity: 1 }));
+      toast.success("Item added to the cart!");
     }
   };
 
+  const handleAddToWishList = (productId) => {
+    const product = filteredProducts.find((p) => p.id === productId);
+    if (product) {
+      const { id, name, img, newprice, oldprice, availabilty } = product;
+      dispatch(
+        addToWishList({ id, name, img, newprice, oldprice, availabilty })
+      );
+      toast.success("Item added to the wish list!");
+    }
+  };
   return (
     <div className="grid lg:max-w-full p-5 mx-10 lg:mx-3 bg-white gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full  ">
       {filteredProducts.map((product) => (
@@ -91,13 +105,17 @@ const ProductList = () => {
             >
               <LuShoppingCart size={25} />
             </p>
-            <p className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10">
+            <p
+              onClick={() => handleAddToWishList(product.id)}
+              className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10"
+            >
               <CiHeart size={25} />
             </p>
           </div>
         </div>
       ))}
       {searchTerm && <SearchResult results={filteredProducts} />}
+      <ToastContainer />
     </div>
   );
 };

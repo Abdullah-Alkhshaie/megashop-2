@@ -13,6 +13,7 @@ import Footer from "./pages/Footer";
 import ProductPage from "./pages/ProductPage";
 import SignIn from "./pages/SignIn";
 import Header from "./components/Header";
+import ScrollToTopButton from "./components/StuckButton";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
               <Route path="productlist" element={<ProductList />} />
               <Route path="productpage/:id" element={<ProductPage />} />
             </Routes>
+            <ScrollToTopButton />
           </div>
         </div>
         <Footer />

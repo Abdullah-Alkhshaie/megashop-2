@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../RTK/slice/CartSlice";
 import { addToWishList } from "../RTK/slice/WishListSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function HomeProducts({ name, id, img, newprice, oldprice, availabilty }) {
   const [hoveredLink, setHoveredLink] = useState("");
@@ -18,10 +20,12 @@ function HomeProducts({ name, id, img, newprice, oldprice, availabilty }) {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ id, name, img, newprice, quantity: 1 })); // Provide the quantity property
+    toast.success("Item added to the cart!");
   };
 
   const handleAddToWishList = () => {
     dispatch(addToWishList({ id, name, img, newprice, oldprice, availabilty }));
+    toast.success("Item added to the wish list!");
   };
 
   return (
@@ -75,6 +79,7 @@ function HomeProducts({ name, id, img, newprice, oldprice, availabilty }) {
           <CiHeart size={25} />
         </p>
       </div>
+      <ToastContainer />
     </div>
   );
 }

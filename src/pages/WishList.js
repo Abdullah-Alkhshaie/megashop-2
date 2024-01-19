@@ -1,12 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import WishListTabelItems from "../components/WishListTabelItems";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function WishList() {
   const wishList = useSelector((state) => state.wishList.items);
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto md:px-10 xl:mr-3">
       {wishList.length > 0 ? (
         <table className="w-full table-auto bg-white border border-gray">
           <thead>
@@ -42,6 +44,7 @@ function WishList() {
           Your wishlist is empty. Add some products!
         </p>
       )}
+      <ToastContainer />
     </div>
   );
 }
