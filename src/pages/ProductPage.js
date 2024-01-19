@@ -19,7 +19,6 @@ function ProductPage() {
       : null;
 
   const status = useSelector((state) => state.products.alltStatu);
-  const wishlist = useSelector((state) => state.wishList.items);
 
   useEffect(() => {
     if (!allProducts || allProducts.length === 0) {
