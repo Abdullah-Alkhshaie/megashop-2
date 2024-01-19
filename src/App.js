@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import WishList from "./pages/WishList";
 import Sidebar from "./components/Sidebar";
 import ProductList from "./pages/ProductList";
@@ -32,7 +31,6 @@ function App() {
               <Route path="contact" element={<ContactUs />} />
               <Route path="Login" element={<Login />} />
               <Route path="SignIn" element={<SignIn />} />
-              <Route path="register" element={<Register />} />
               <Route path="wishlist" element={<WishList />} />
               <Route path="productlist" element={<ProductList />} />
               <Route path="productpage/:id" element={<ProductPage />} />
