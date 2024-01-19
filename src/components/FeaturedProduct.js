@@ -25,10 +25,12 @@ function FeaturedProduct() {
     navigate(`/productpage/${featuredProduct.id}`);
   };
 
-  const handleAddToCart = () => {
-    const { id, img, name, newprice } = featuredProduct;
-
-    dispatch(addToCart({ id, img, name, newprice }));
+  const handleAddToCart = (id) => {
+    const product = featuredProduct.find((product) => product.id === id);
+    if (product) {
+      const { id, img, name, newprice } = product;
+      dispatch(addToCart({ id, img, name, newprice, quantity: 1 }));
+    }
   };
 
   return (
@@ -66,7 +68,7 @@ function FeaturedProduct() {
               )}
             </div>
             <button
-              onClick={handleAddToCart}
+              onClick={() => handleAddToCart(product.id)}
               className="text-dark cursor-pointer duration-300 hover:text-font text-md"
             >
               Add To Cart

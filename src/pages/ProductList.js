@@ -26,9 +26,12 @@ const ProductList = () => {
       )
     : filteredByCategory;
 
-  const handleAddToCart = () => {
-    const { id, name, img, newprice } = products;
-    dispatch(addToCart({ id, name, img, newprice }));
+  const handleAddToCart = (productId) => {
+    const product = filteredProducts.find((p) => p.id === productId);
+    if (product) {
+      const { id, name, img, newprice } = product;
+      dispatch(addToCart({ id, name, img, newprice, quantity: 1 }));
+    }
   };
 
   return (
@@ -74,7 +77,7 @@ const ProductList = () => {
             }`}
           >
             <p
-              onClick={handleAddToCart}
+              onClick={() => handleAddToCart(product.id)}
               className="text-black bg-light rounded-full flex items-center justify-center hover:bg-primary duration-300 hover:text-white cursor-pointer h-10 w-10"
             >
               <LuShoppingCart size={25} />
