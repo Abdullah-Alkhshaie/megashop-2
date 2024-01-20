@@ -5,15 +5,22 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
+      setLoading(true);
       const auth = getAuth();
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
     } catch (error) {
       console.error("Error logging in:", error.message);
+      setErrorMessage("Invalid email or password");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -54,12 +61,16 @@ function Login() {
           className="border px-2 py-2 outline-none border-gray mt-3"
           placeholder="Password"
         />
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
 
         <button
           onClick={handleLogin}
-          className="bg-primary mt-5 flex w-fit text-center items-center text-white lg:px-6 hover:bg-font px-1 md:px-3 py-2 lg:py-3 text-base md:text-lg rounded-md"
+          className={`w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-font focus:outline-none focus:shadow-outline-blue ${
+            loading ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={loading}
         >
-          Login
+          {loading ? "Login..." : "Login"}
         </button>
       </div>
     </div>

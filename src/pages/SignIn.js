@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { registerUser } from "../auth";
+import { registerUser, isEmailAlreadyRegistered } from "../auth";
 import { useNavigate } from "react-router-dom";
 
 function SignIn() {
@@ -10,6 +10,9 @@ function SignIn() {
     email: "",
     password: "",
   });
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,13 +26,31 @@ function SignIn() {
     e.preventDefault();
 
     try {
-      // Call the registerUser function from auth.js
-      const user = await registerUser(formData);
+      setLoading(true);
+      const emailAlreadyRegistered = await isEmailAlreadyRegistered(
+        formData.email
+      );
 
-      console.log("User registered:", user);
-      navigate("/");
+      if (emailAlreadyRegistered) {
+        setErrorMessage("Email is already registered");
+      } else {
+        const user = await registerUser(formData);
+
+        console.log("User registered:", user);
+        navigate("/");
+      }
     } catch (error) {
       console.error("Error registering user:", error.message);
+
+      // Check if the error message indicates that the email is already in use
+      if (error.message.includes("auth/email-already-in-use")) {
+        setErrorMessage("Email is already registered");
+      } else {
+        // If it's a different error, you can set a generic error message
+        setErrorMessage("Email is already registered");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -37,6 +58,7 @@ function SignIn() {
     <div className="max-w-lg m-auto lg:m-0">
       <div className=" p-6 bg-white mx-3">
         <h2 className="text-xl mb-4 text-font ">Registration Form</h2>
+
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-dark text-sm " htmlFor="username">
@@ -83,11 +105,17 @@ function SignIn() {
             />
           </div>
 
+          {errorMessage && (
+            <div className="text-red-500 mb-4">{errorMessage}</div>
+          )}
           <button
             type="submit"
-            className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-font focus:outline-none focus:shadow-outline-blue"
+            className={`w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-font focus:outline-none focus:shadow-outline-blue ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={loading}
           >
-            Register
+            {loading ? "Registering..." : "Register"}
           </button>
         </form>
       </div>
